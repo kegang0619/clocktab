@@ -1,0 +1,51 @@
+
+<html>
+<head>
+    <title>ClockTab</title>
+    <script type="text/javascript">
+        function display_c() {
+            var refresh = 10000; // Refresh rate in milli seconds
+            mytime = setTimeout('display_ct()', refresh)
+        }
+
+        function display_ct() {
+            var x = new Date()
+            var hours= x.getHours();
+            var minutes= x.getMinutes();
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0'+minutes : minutes;
+            var print = hours + '시 ' + minutes + '분';
+            document.getElementById('ct').innerHTML = print;
+            display_c();
+        }
+    </script>
+
+    <style>
+        #ct {
+            font-size: 90px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        #container {
+            display: table;
+            width: 100%;
+            height: 100%;
+            margin-top: -40px;
+        }
+        
+        #center {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body onload=display_ct(); style="background:black;">
+    <div id="container">
+        <center id="center"><span id="ct"></span></center>
+    </div>
+
+</body>
+</html>
