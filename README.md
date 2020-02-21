@@ -1,4 +1,4 @@
-# clocktab for web
+# Clocktab for web
 **Real-Time** clock tab for your computer on the desk.
 
 
