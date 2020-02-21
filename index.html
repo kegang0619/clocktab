@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>(Type a title for your page here)</title>
+    <script type="text/javascript">
+        function display_c() {
+            var refresh = 10000; // Refresh rate in milli seconds
+            mytime = setTimeout('display_ct()', refresh)
+        }
+
+        function display_ct() {
+            var x = new Date()
+            var x1 = x.getHours() + ":" + x.getMinutes();
+            document.getElementById('ct').innerHTML = x1;
+            display_c();
+        }
+    </script>
+
+    <style>
+        #ct {
+            font-size: 130px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        #container {
+            display: table;
+            width: 100%;
+            height: 100%;
+            margin-top: -40px;
+        }
+        
+        #center {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body onload=display_ct(); style="background:black;">
+    <div id="container">
+        <center id="center"><span id="ct"></span></center>
+    </div>
+
+</body>
+
+</html>
