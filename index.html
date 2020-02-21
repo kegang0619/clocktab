@@ -1,3 +1,4 @@
+
 <html>
 <head>
     <title>ClockTab</title>
@@ -9,12 +10,13 @@
 
         function display_ct() {
             var x = new Date()
-            var hour=x.getHours();
-            var minute=x.getMinutes();
-            if(hour <10 ){hour='0'+hour;}
-            if(minute <10 ) {minute='0' + minute; }
-            var x1 = hour + ':' + minute;
-            document.getElementById('ct').innerHTML = x1;
+            var hours= x.getHours();
+            var minutes= x.getMinutes();
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0'+minutes : minutes;
+            var print =  hours + ':' + minutes;
+            document.getElementById('ct').innerHTML = print;
             display_c();
         }
     </script>
